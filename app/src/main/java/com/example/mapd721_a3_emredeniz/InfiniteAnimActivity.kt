@@ -33,7 +33,7 @@ fun InfiniteAnimation(onBackPressed: () -> Unit) {
     ) {
         BackButton(onBackPressed = onBackPressed)
 
-        Spacer(modifier = Modifier.size(150.dp))
+        Spacer(modifier = Modifier.size(200.dp))
 
         ContinuousAnimatedCircle(size)
     }
@@ -46,14 +46,14 @@ fun ContinuousAnimatedCircle(size: Dp) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.size(currSize)
-            .background(color = Color.Red, shape = CircleShape)
+            .background(color = Color.Black, shape = CircleShape)
     ) {
         LaunchedEffect(Unit) {
             while (true) {
                 currSize = size * 1.2f
-                delay(500)
+                delay(750)
                 currSize = size
-                delay(500)
+                delay(750)
             }
         }
     }

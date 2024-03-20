@@ -31,22 +31,23 @@ fun AnimationButtons(context: Context, navigateToActivity: (Intent) -> Unit) {
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = Modifier.padding(16.dp)
     ) {
-//        AnimationButton("Transition Animation") {
+//        AnimButton("Transition Animation") {
 //            navigateToActivity(Intent(context, TransitionAnimationActivity::class.java))
 //        }
-        AnimationButton("Scale Animation") {
+        AnimButton("Scale Animation") {
             navigateToActivity(Intent(context, ScaleAnimActivity::class.java))
         }
-        AnimationButton("Infinite Animation") {
+        AnimButton("Infinite Animation") {
             navigateToActivity(Intent(context, InfiniteAnimActivity::class.java))
         }
-//        AnimationButton("Exit Animation") {
-//            navigateToActivity(Intent(context, ExitAnimationActivity::class.java))
+        AnimButton("Enter Exit Animation") {
+            navigateToActivity(Intent(context, EnterExitAnimActivity::class.java))
+        }
     }
 }
 
 @Composable
-fun AnimationButton(text: String, onClick: () -> Unit) {
+fun AnimButton(text: String, onClick: () -> Unit) {
     Button(onClick = onClick) {
         Text(text)
     }
