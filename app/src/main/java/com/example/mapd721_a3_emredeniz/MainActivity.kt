@@ -1,46 +1,53 @@
 package com.example.mapd721_a3_emredeniz
 
+import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.mapd721_a3_emredeniz.ui.theme.MAPD721A3EmreDenizTheme
+import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MAPD721A3EmreDenizTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+            AnimationButtons(this) { intent ->
+                startActivity(intent)
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun AnimationButtons(context: Context, navigateToActivity: (Intent) -> Unit) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        modifier = Modifier.padding(16.dp)
+    ) {
+//        AnimationButton("Transition Animation") {
+//            navigateToActivity(Intent(context, TransitionAnimationActivity::class.java))
+//        }
+        AnimationButton("Scale Animation") {
+            navigateToActivity(Intent(context, ScaleAnimActivity::class.java))
+        }
+        AnimationButton("Infinite Animation") {
+            navigateToActivity(Intent(context, InfiniteAnimActivity::class.java))
+        }
+//        AnimationButton("Exit Animation") {
+//            navigateToActivity(Intent(context, ExitAnimationActivity::class.java))
+    }
 }
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    MAPD721A3EmreDenizTheme {
-        Greeting("Android")
+fun AnimationButton(text: String, onClick: () -> Unit) {
+    Button(onClick = onClick) {
+        Text(text)
     }
 }
