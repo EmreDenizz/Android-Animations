@@ -1,3 +1,6 @@
+// Emre Deniz
+// Adv. Android - Assignment 3
+
 package com.example.mapd721_a3_emredeniz
 
 import android.os.Bundle
@@ -37,7 +40,7 @@ fun EnterExitAnimation(onBackPressed: () -> Unit) {
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(20.dp)
     ) {
         BackButton(onBackPressed = onBackPressed)
 
@@ -65,7 +68,7 @@ fun EnterExitAnimation(onBackPressed: () -> Unit) {
 fun AnimatedImage() {
     var size by remember { mutableStateOf(200.dp) }
     val transition = updateTransition(targetState = size, label = "")
-    val sizeValue by transition.animateDp(
+    val sizeVal by transition.animateDp(
         transitionSpec = { keyframes { durationMillis = 2500 } }
     ) { targetSize -> targetSize }
 
@@ -73,7 +76,7 @@ fun AnimatedImage() {
         painter = painterResource(id = R.drawable.fruit),
         contentDescription = null,
         modifier = Modifier
-            .size(sizeValue)
+            .size(sizeVal)
             .border(1.dp, Color.Black, CircleShape)
     )
 }

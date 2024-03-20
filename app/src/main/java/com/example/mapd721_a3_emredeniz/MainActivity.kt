@@ -1,3 +1,6 @@
+// Emre Deniz
+// Adv. Android - Assignment 3
+
 package com.example.mapd721_a3_emredeniz
 
 import android.content.Intent
@@ -28,27 +31,48 @@ class MainActivity : ComponentActivity() {
 fun AnimationButtons(context: Context, navigateToActivity: (Intent) -> Unit) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        modifier = Modifier.padding(16.dp)
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.fillMaxSize().padding(10.dp)
     ) {
-//        AnimButton("Transition Animation") {
-//            navigateToActivity(Intent(context, TransitionAnimationActivity::class.java))
-//        }
+        Spacer(modifier = Modifier.weight(1f))
+
+        // Transition Animation button
+        AnimButton("Transition Animation") {
+            navigateToActivity(Intent(context, TransitionAnimActivity::class.java))
+        }
+        Spacer(modifier = Modifier.size(5.dp))
+
+        // Scale Animation button
         AnimButton("Scale Animation") {
             navigateToActivity(Intent(context, ScaleAnimActivity::class.java))
         }
+        Spacer(modifier = Modifier.size(5.dp))
+
+        // Infinite Animation button
         AnimButton("Infinite Animation") {
             navigateToActivity(Intent(context, InfiniteAnimActivity::class.java))
         }
+        Spacer(modifier = Modifier.size(5.dp))
+
+        // Enter Exit Animation button
         AnimButton("Enter Exit Animation") {
             navigateToActivity(Intent(context, EnterExitAnimActivity::class.java))
         }
+        Spacer(modifier = Modifier.weight(1f))
     }
 }
 
 @Composable
 fun AnimButton(text: String, onClick: () -> Unit) {
-    Button(onClick = onClick) {
-        Text(text)
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+    ) {
+        Button(
+            onClick = onClick,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Text(text)
+        }
     }
 }

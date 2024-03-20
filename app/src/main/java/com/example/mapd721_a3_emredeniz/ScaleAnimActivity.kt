@@ -1,3 +1,6 @@
+// Emre Deniz
+// Adv. Android - Assignment 3
+
 package com.example.mapd721_a3_emredeniz
 
 import android.os.Bundle
@@ -24,7 +27,7 @@ class ScaleAnimActivity : ComponentActivity() {
 fun ScaleAnimationScreen(onBackPressed: () -> Unit) {
     Column(
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(30.dp)
     ) {
         BackButton(onBackPressed = onBackPressed)
 

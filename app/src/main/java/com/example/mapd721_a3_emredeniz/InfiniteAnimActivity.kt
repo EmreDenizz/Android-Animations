@@ -1,3 +1,6 @@
+// Emre Deniz
+// Adv. Android - Assignment 3
+
 package com.example.mapd721_a3_emredeniz
 
 import android.os.Bundle
@@ -29,7 +32,7 @@ fun InfiniteAnimation(onBackPressed: () -> Unit) {
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(20.dp)
     ) {
         BackButton(onBackPressed = onBackPressed)
 
